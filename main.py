@@ -49,12 +49,12 @@ please choose from blow list: (Enter a number)
 option = int(input('what is your choice? '))
 
 face_detector = cv2.CascadeClassifier('xml\haarcascade_frontalface_default.xml')
-eye_detector = cv2.CascadeClassifier('xml\haarcascade_eye_tree_eyeglasses.xml')
+eye_detector = cv2.CascadeClassifier('xml\haarcascade_eye.xml')
 smile_detector = cv2.CascadeClassifier('xml\haarcascade_smile.xml')
 
 # ------------------------------------- Inputs
-# video = cv2.VideoCapture(0)
-video = cv2.VideoCapture('obama.mp4')
+video = cv2.VideoCapture(0)
+# video = cv2.VideoCapture('obama.mp4')
 # -------------------------------------
 
 cnt = 1
@@ -76,7 +76,7 @@ while True:
                 cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 0)
                 for xe, ye, we, he in eyes:
                     cv2.rectangle(frame, (x + xe, y + ye), (x + xe + we, y + ye + he), (125, 255, 0), 0)
-                for xs, ys, ws, hs in smile:
+                for xs, ys, ws, hs in smiles:
                     cv2.rectangle(frame, (x + xs, y + ys), (x + xs + ws, y + ys + hs), (0, 255, 0), 0)
 
             elif option == 2:
